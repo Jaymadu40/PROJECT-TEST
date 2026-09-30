@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101326">  <title>Hello, world! — A little moment of wonder</title>
+  <meta name="theme-color" content="#101326">  <title>Gallery — A little moment of wonder</title>
   <style>
     :root { color-scheme: dark; --ink: #f6f4ff; --muted: #b7b6d2; --mint: #88f0d2; }
     * { box-sizing: border-box; }
@@ -16,6 +16,23 @@
     .site-nav a { padding: .65rem .95rem; color: var(--muted); text-decoration: none; font-size: .88rem; border-radius: 999px; }
     .site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--ink); background: rgba(255,255,255,.11); }
     .site-nav a:focus-visible, .contact-link:focus-visible { outline: 2px solid var(--mint); outline-offset: 3px; }
+    .gallery-main { width: min(92vw, 1040px); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 2.5rem; text-align: left; }
+    .art-card { overflow: hidden; padding: .85rem .85rem 1.1rem; border: 1px solid rgba(255,255,255,.15); border-radius: 22px; background: rgba(255,255,255,.055); transition: transform .25s ease, border-color .25s ease; }
+    .art-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,.32); }
+    .art-shape { position: relative; height: 190px; overflow: hidden; border-radius: 15px; }
+    .art-shape::before, .art-shape::after { content: ""; position: absolute; border-radius: 50%; }
+    .art-one .art-shape { background: linear-gradient(145deg, #f7a76c, #bd72d8 52%, #5453a8); }
+    .art-one .art-shape::before { width: 145px; height: 145px; left: 50%; top: 22px; transform: translateX(-50%); background: linear-gradient(135deg, #fff2bd, #ffd07f); box-shadow: 0 0 45px rgba(255,225,156,.55); }
+    .art-two .art-shape { background: linear-gradient(145deg, #293e75, #735cb6 55%, #eb8cba); }
+    .art-two .art-shape::before { width: 120px; height: 120px; left: 50%; top: 32px; transform: translateX(-50%); border: 2px solid rgba(233,240,255,.85); box-shadow: 0 0 0 16px rgba(255,255,255,.08), 0 0 0 34px rgba(255,255,255,.06); }
+    .art-two .art-shape::after { width: 28px; height: 28px; left: 64%; top: 45px; background: #a8f2df; box-shadow: 0 0 25px #a8f2df; }
+    .art-three .art-shape { background: linear-gradient(145deg, #83dfd1, #579bb8 48%, #6656a1); }
+    .art-three .art-shape::before { width: 180px; height: 180px; left: -20px; top: 45px; background: linear-gradient(135deg, rgba(255,255,255,.8), rgba(198,174,255,.7)); }
+    .art-three .art-shape::after { width: 120px; height: 120px; right: 5px; top: 15px; background: linear-gradient(135deg, #ffd48d, #fa8db2); }
+    .art-card h2 { margin: 1rem .25rem .25rem; font-size: 1rem; }
+    .art-card p { margin: 0 .25rem; color: var(--muted); font-size: .86rem; line-height: 1.5; }
+    @media (max-width: 700px) { .gallery-grid { grid-template-columns: 1fr; } .art-shape { height: 220px; } }
     main { position: relative; width: min(90vw, 820px); padding: clamp(2rem, 7vw, 5.5rem); text-align: center; border: 1px solid rgba(255,255,255,.16); border-radius: 32px; background: linear-gradient(145deg, rgba(255,255,255,.11), rgba(255,255,255,.035)); box-shadow: 0 32px 100px rgba(0,0,0,.36), inset 0 1px rgba(255,255,255,.14); backdrop-filter: blur(20px); animation: arrive .9s cubic-bezier(.2,.8,.2,1) both; }
     .eyebrow { display: inline-flex; align-items: center; gap: .6rem; margin: 0 0 1.5rem; color: var(--mint); font-size: .76rem; font-weight: 700; letter-spacing: .19em; text-transform: uppercase; }
     .spark { width: 7px; height: 7px; border-radius: 50%; background: currentColor; box-shadow: 0 0 14px currentColor; }
@@ -34,23 +51,15 @@
 <body>
   <div class="grain" aria-hidden="true"></div>
   <nav class="site-nav" aria-label="Main navigation">
-    <a href="index.html" aria-current="page">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="gallery.html">Gallery</a>
-  </nav>  <main>
-    <p class="eyebrow"><span class="spark" aria-hidden="true"></span> A small beginning</p>
-    <h1>Hello,<span>world!</span></h1>
-    <p class="message">Every great idea starts with a first line. Here’s to the curious things you’ll make next.</p>
-    <button id="helloButton" type="button">Say hello back <span aria-hidden="true">↗</span></button>
-    <p class="note" id="response" aria-live="polite"></p>
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="gallery.html" aria-current="page">Gallery</a>
+  </nav>  <main class="gallery-main">
+    <p class="eyebrow"><span class="spark" aria-hidden="true"></span> A collection of little moments</p>
+    <h1>Small things,<span>big wonder.</span></h1>
+    <p class="message">This tiny corner of the web began with two words and a blank page. It’s a reminder that every interesting project starts somewhere—and that the first step can be simple, bright, and a little bit playful.</p>
+    <section class="gallery-grid" aria-label="Abstract artwork gallery"><article class="art-card art-one"><div class="art-shape" aria-hidden="true"></div><h2>First Light</h2><p>A new day, full of possibility.</p></article><article class="art-card art-two"><div class="art-shape" aria-hidden="true"></div><h2>Soft Orbit</h2><p>Everything finds its own rhythm.</p></article><article class="art-card art-three"><div class="art-shape" aria-hidden="true"></div><h2>Daydream</h2><p>A little color outside the lines.</p></article></section>
     <footer>MADE FOR THE MOMENT</footer>
   </main>
-  <script>
-    const button = document.querySelector('#helloButton');
-    const response = document.querySelector('#response');
-    button.addEventListener('click', () => {
-      response.textContent = 'Hello to you, too ✨';
-      button.innerHTML = 'Hello received <span aria-hidden="true">✓</span>';
-    });
-  </script></body>
+</body>
 </html>
 
 
