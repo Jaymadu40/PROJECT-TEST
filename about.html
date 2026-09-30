@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101326">  <title>Hello, world! — A little moment of wonder</title>
+  <meta name="theme-color" content="#101326">  <title>About — A little moment of wonder</title>
   <style>
     :root { color-scheme: dark; --ink: #f6f4ff; --muted: #b7b6d2; --mint: #88f0d2; }
     * { box-sizing: border-box; }
@@ -34,23 +34,14 @@
 <body>
   <div class="grain" aria-hidden="true"></div>
   <nav class="site-nav" aria-label="Main navigation">
-    <a href="hello-world.html" aria-current="page">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+    <a href="hello-world.html">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a>
   </nav>  <main>
-    <p class="eyebrow"><span class="spark" aria-hidden="true"></span> A small beginning</p>
-    <h1>Hello,<span>world!</span></h1>
-    <p class="message">Every great idea starts with a first line. Here’s to the curious things you’ll make next.</p>
-    <button id="helloButton" type="button">Say hello back <span aria-hidden="true">↗</span></button>
-    <p class="note" id="response" aria-live="polite"></p>
+    <p class="eyebrow"><span class="spark" aria-hidden="true"></span> A little about this page</p>
+    <h1>Made for<span>curiosity.</span></h1>
+    <p class="message">This tiny corner of the web began with two words and a blank page. It’s a reminder that every interesting project starts somewhere—and that the first step can be simple, bright, and a little bit playful.</p>
+    <div class="principles"><span>Stay curious</span><span>Make a start</span><span>Keep it joyful</span></div>
     <footer>MADE FOR THE MOMENT</footer>
   </main>
-  <script>
-    const button = document.querySelector('#helloButton');
-    const response = document.querySelector('#response');
-    button.addEventListener('click', () => {
-      response.textContent = 'Hello to you, too ✨';
-      button.innerHTML = 'Hello received <span aria-hidden="true">✓</span>';
-    });
-  </script></body>
+</body>
 </html>
-
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101326">  <title>Hello, world! — A little moment of wonder</title>
+  <meta name="theme-color" content="#101326">  <title>Contact — A little moment of wonder</title>
   <style>
     :root { color-scheme: dark; --ink: #f6f4ff; --muted: #b7b6d2; --mint: #88f0d2; }
     * { box-sizing: border-box; }
@@ -34,23 +34,14 @@
 <body>
   <div class="grain" aria-hidden="true"></div>
   <nav class="site-nav" aria-label="Main navigation">
-    <a href="hello-world.html" aria-current="page">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+    <a href="hello-world.html">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a>
   </nav>  <main>
-    <p class="eyebrow"><span class="spark" aria-hidden="true"></span> A small beginning</p>
-    <h1>Hello,<span>world!</span></h1>
-    <p class="message">Every great idea starts with a first line. Here’s to the curious things you’ll make next.</p>
-    <button id="helloButton" type="button">Say hello back <span aria-hidden="true">↗</span></button>
-    <p class="note" id="response" aria-live="polite"></p>
+    <p class="eyebrow"><span class="spark" aria-hidden="true"></span> The next good idea starts here</p>
+    <h1>Let’s<span>talk.</span></h1>
+    <p class="message">Have a question, a kind thought, or an idea you’re excited to share? Send a note and let’s see where the conversation goes.</p>
+    <a class="contact-link" href="mailto:hello@example.com">hello@example.com <span aria-hidden="true">↗</span></a>
     <footer>MADE FOR THE MOMENT</footer>
   </main>
-  <script>
-    const button = document.querySelector('#helloButton');
-    const response = document.querySelector('#response');
-    button.addEventListener('click', () => {
-      response.textContent = 'Hello to you, too ✨';
-      button.innerHTML = 'Hello received <span aria-hidden="true">✓</span>';
-    });
-  </script></body>
+</body>
 </html>
-
 
